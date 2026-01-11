@@ -15,7 +15,7 @@ app.get("/getUsers", async (req, res) => {
     await client.connect(URL);
     console.log('Connected successfully to server');
 
-    const db = client.db("apnacollege-db");
+    const db = client.db("shaldon_db");
     const data = await db.collection('users').find({}).toArray();
     
     client.close();
@@ -29,7 +29,7 @@ app.post("/addUser", async (req, res) => {
     await client.connect(URL);
     console.log('Connected successfully to server');
 
-    const db = client.db("apnacollege-db");
+    const db = client.db("shaldon_db");
     const data = await db.collection('users').insertOne(userObj);
     console.log(data);
     console.log("data inserted in DB");
@@ -38,5 +38,5 @@ app.post("/addUser", async (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}`);
+    console.log(`server running on url http://localhost:${PORT}`);
 });
